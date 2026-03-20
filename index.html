@@ -347,13 +347,13 @@ footer{padding:40px;display:flex;justify-content:space-between;align-items:cente
     <div class="dp-zone left" id="zoneLeft">
       <div class="dp-ripple" id="rippleLeft"></div>
       <div class="dp-seek-label" id="labelLeft">
-        <span class="arrows">‹‹</span><span>10 sec</span>
+        <span class="arrows" id="arrowsLeft">‹‹</span><span id="secLeft">10 sec</span>
       </div>
     </div>
     <div class="dp-zone right" id="zoneRight">
       <div class="dp-ripple" id="rippleRight"></div>
       <div class="dp-seek-label" id="labelRight">
-        <span class="arrows">››</span><span>10 sec</span>
+        <span class="arrows" id="arrowsRight">››</span><span id="secRight">10 sec</span>
       </div>
     </div>
 
@@ -463,15 +463,43 @@ footer{padding:40px;display:flex;justify-content:space-between;align-items:cente
 <script>
 /* ── EPISODE DATA ── */
 const EPISODES = [];
-for (let i = 1; i <= 37; i++) {
-  EPISODES.push({
-    num: i,
-    title: `Episode ${i}`,
-    desc: i === 1 ? 'The story begins. Watch where it all starts in the first chapter of Death Player.' : 'Coming soon.',
-    url:  i === 1 ? 'https://www.dropbox.com/scl/fi/uzoaftbsvsismrwhj4don/1.mp4?rlkey=afsn77g5uikegmf023d4eiorz&st=hshpbigr&raw=1' : null,
-    available: i === 1
-  });
-}
+EPISODES.push({ num: 1, title: 'Episode 1', desc: 'The story begins. Watch where it all starts in the first chapter of Death Player.', url: 'https://www.dropbox.com/scl/fi/uzoaftbsvsismrwhj4don/1.mp4?rlkey=afsn77g5uikegmf023d4eiorz&st=hshpbigr&raw=1', available: true });
+EPISODES.push({ num: 2, title: 'Episode 2', desc: 'Episode 2 of Death Player.', url: 'https://www.dropbox.com/scl/fi/cllgjcd6699w7xd4nx34w/Death-Note-English-S1E2-1080P.mp4?rlkey=p40e5p74rln7q83cmugj5tor1&st=hp53ex0b&raw=1', available: true });
+EPISODES.push({ num: 3, title: 'Episode 3', desc: 'Episode 3 of Death Player.', url: 'https://www.dropbox.com/scl/fi/jy2fc5cgjsprqwqfqlspw/Death-Note-English-S1E3-1080P.mp4?rlkey=hyzedfil896gxgco6n4k97peb&st=ccamruj9&raw=1', available: true });
+EPISODES.push({ num: 4, title: 'Episode 4', desc: 'Episode 4 of Death Player.', url: 'https://www.dropbox.com/scl/fi/ebnj0xyyjx592k4w4fs9j/Death-Note-English-S1E4-1080P.mp4?rlkey=65mhnf5w9q3dkk43lcj65nwh9&st=dse1dnan&raw=1', available: true });
+EPISODES.push({ num: 5, title: 'Episode 5', desc: 'Episode 5 of Death Player.', url: 'https://www.dropbox.com/scl/fi/xxp0343oleafaogbahwhd/Death-Note-English-S1E5-1080P.mp4?rlkey=bcdx7p1d4c7qu0rvlh6u87sob&st=c9jhdu5l&raw=1', available: true });
+EPISODES.push({ num: 6, title: 'Episode 6', desc: 'Episode 6 of Death Player.', url: 'https://www.dropbox.com/scl/fi/e48gsn3xayc25inwwecc3/Death-Note-English-S1E6-1080P.mp4?rlkey=55qbm3je27n4r85n4ttufrupl&st=1g8twnm5&raw=1', available: true });
+EPISODES.push({ num: 7, title: 'Episode 7', desc: 'Episode 7 of Death Player.', url: 'https://www.dropbox.com/scl/fi/9231co6kr7odpfnlx0iij/Death-Note-English-S1E7-1080P.mp4?rlkey=agsxabcb9k8cb3uexil3czjrf&st=wab62nf7&raw=1', available: true });
+EPISODES.push({ num: 8, title: 'Episode 8', desc: 'Episode 8 of Death Player.', url: 'https://www.dropbox.com/scl/fi/wzc7s76vihf9dzupsbhlp/Death-Note-English-S1E8-1080P.mp4?rlkey=23r6tmbjmzhzww356uxzrzjae&st=5la4oucl&raw=1', available: true });
+EPISODES.push({ num: 9, title: 'Episode 9', desc: 'Episode 9 of Death Player.', url: 'https://www.dropbox.com/scl/fi/y18dret7rfuq4kiwhko4n/Death-Note-English-S1E9-1080P.mp4?rlkey=augr3djd50i4p6t9lzr10sl1u&st=1y8g1h5z&raw=1', available: true });
+EPISODES.push({ num: 10, title: 'Episode 10', desc: 'Episode 10 of Death Player.', url: 'https://www.dropbox.com/scl/fi/wax9m5heg0mbye30zf9sb/Death-Note-English-S1E10-1080P.mp4?rlkey=1l6f2zgpas08zmqesgx1hy1cy&st=kfv40tqu&raw=1', available: true });
+EPISODES.push({ num: 11, title: 'Episode 11', desc: 'Episode 11 of Death Player.', url: 'https://www.dropbox.com/scl/fi/fsg8ucw0ka56j58o0ldpv/Death-Note-English-S1E11-1080P.mp4?rlkey=nsxrq75ukz0ecb9rs96dtejtr&st=ygyk725c&raw=1', available: true });
+EPISODES.push({ num: 12, title: 'Episode 12', desc: 'Episode 12 of Death Player.', url: 'https://www.dropbox.com/scl/fi/el9scftfttdg3n3mi1m9w/Death-Note-English-S1E12-1080P.mp4?rlkey=wqpz9mzj26g7j4ucjoi40u865&st=kse8f46l&raw=1', available: true });
+EPISODES.push({ num: 13, title: 'Episode 13', desc: 'Episode 13 of Death Player.', url: 'https://www.dropbox.com/scl/fi/h67zx65leu3a8x2xuzrni/Death-Note-English-S1E13-1080P.mp4?rlkey=kcf6cp2mtlu78s0cliu0t7zeh&st=deh5ecid&raw=1', available: true });
+EPISODES.push({ num: 14, title: 'Episode 14', desc: 'Episode 14 of Death Player.', url: 'https://www.dropbox.com/scl/fi/37bt4dt8dry39hxz76kj3/Death-Note-English-S1E14-1080P.mp4?rlkey=trnmmp6rqqu8u5nbf3fqxjnq9&st=vsv3pwbf&raw=1', available: true });
+EPISODES.push({ num: 15, title: 'Episode 15', desc: 'Episode 15 of Death Player.', url: 'https://www.dropbox.com/scl/fi/n46jrrmy15ah4l37cn6j8/Death-Note-English-S1E15-1080P.mp4?rlkey=02nt43iywm5hte63urzmmc9wv&st=ipnjfnb3&raw=1', available: true });
+EPISODES.push({ num: 16, title: 'Episode 16', desc: 'Episode 16 of Death Player.', url: 'https://www.dropbox.com/scl/fi/jezmf2dq3rd7vkf1o2z75/Death-Note-English-S1E16-1080P.mp4?rlkey=a83vjjyg3dzq09nr68vikklfe&st=pqtm8tv4&raw=1', available: true });
+EPISODES.push({ num: 17, title: 'Episode 17', desc: 'Episode 17 of Death Player.', url: 'https://www.dropbox.com/scl/fi/ctjvnzclr53yzi8ej19ik/Death-Note-English-S1E17-1080P.mp4?rlkey=yxyj3owbrwb21nemb3oxyerie&st=l0e2yz7d&raw=1', available: true });
+EPISODES.push({ num: 18, title: 'Episode 18', desc: 'Episode 18 of Death Player.', url: 'https://www.dropbox.com/scl/fi/0b0mgwssls16xovuxdjn1/Death-Note-English-S1E18-1080P.mp4?rlkey=mc2sa7rke53guugwodbfx3sp1&st=wssaq6mi&raw=1', available: true });
+EPISODES.push({ num: 19, title: 'Episode 19', desc: 'Episode 19 of Death Player.', url: 'https://www.dropbox.com/scl/fi/ir30xsb80wqxx2gyhllvq/Death-Note-English-S1E19-1080P.mp4?rlkey=84xoivgdmt8os20y8w53fqtf4&st=dcqw8syy&raw=1', available: true });
+EPISODES.push({ num: 20, title: 'Episode 20', desc: 'Episode 20 of Death Player.', url: 'https://www.dropbox.com/scl/fi/8f4pcrroavwa9y5zifc4o/Death-Note-English-S1E20-1080P.mp4?rlkey=wlbf606n3am7zr2q5ma56yl5u&st=lv15bpi1&raw=1', available: true });
+EPISODES.push({ num: 21, title: 'Episode 21', desc: 'Episode 21 of Death Player.', url: 'https://www.dropbox.com/scl/fi/zuq7yi0sdr1u7zt178wzn/Death-Note-English-S1E21-1080P.mp4?rlkey=i1114osg9jj5m9cipz3vwyugy&st=6t4lslly&raw=1', available: true });
+EPISODES.push({ num: 22, title: 'Episode 22', desc: 'Episode 22 of Death Player.', url: 'https://www.dropbox.com/scl/fi/bwi6rml4l1s1r59gt9yjw/Death-Note-English-S1E22-1080P.mp4?rlkey=1k7uarbfcgom7ftl6dr6die1o&st=dvuwkz3h&raw=1', available: true });
+EPISODES.push({ num: 23, title: 'Episode 23', desc: 'Episode 23 of Death Player.', url: 'https://www.dropbox.com/scl/fi/b4e581vmjhl8hi0z2vhe4/Death-Note-English-S1E23-1080P.mp4?rlkey=9g82wlkcmre46ykaso4l1xu2l&st=t8bma4w2&raw=1', available: true });
+EPISODES.push({ num: 24, title: 'Episode 24', desc: 'Episode 24 of Death Player.', url: 'https://www.dropbox.com/scl/fi/x6993jz3y6k8dsz3hd6xq/Death-Note-English-S1E24-1080P.mp4?rlkey=wn8ecj2v4ribuavx9qqjmmd90&st=u3g8jspm&raw=1', available: true });
+EPISODES.push({ num: 25, title: 'Episode 25', desc: 'Episode 25 of Death Player.', url: 'https://www.dropbox.com/scl/fi/fehpbsg12euib7kcup4kx/Death-Note-English-S1E25-1080P.mp4?rlkey=li32tc43ifoujps0ac9cn858o&st=5wy6ix9s&raw=1', available: true });
+EPISODES.push({ num: 26, title: 'Episode 26', desc: 'Episode 26 of Death Player.', url: 'https://www.dropbox.com/scl/fi/9vj7d1301vm1av7z37eq3/Death-Note-English-S1E26-1080P.mp4?rlkey=ku5ilvvzlqbb5wlqd41q4ksec&st=hfh8t6dp&raw=1', available: true });
+EPISODES.push({ num: 27, title: 'Episode 27', desc: 'Episode 27 of Death Player.', url: 'https://www.dropbox.com/scl/fi/k4r13nmjm2hpqmb5cg6z3/Death-Note-English-S1E27-1080P.mp4?rlkey=9h3a4ecv313bjcsucj8oh6boq&st=77jdomnx&raw=1', available: true });
+EPISODES.push({ num: 28, title: 'Episode 28', desc: 'Episode 28 of Death Player.', url: 'https://www.dropbox.com/scl/fi/z6hzjwaucbxqtequvzgla/Death-Note-English-S1E28-1080P.mp4?rlkey=h1e8m9ga11nmppl9y82p4j4ai&st=dh2e7ig7&raw=1', available: true });
+EPISODES.push({ num: 29, title: 'Episode 29', desc: 'Episode 29 of Death Player.', url: 'https://www.dropbox.com/scl/fi/w0gokg85odj4zlx592nko/Death-Note-English-S1E29-1080P.mp4?rlkey=egpdc6z5wg7eqrm4howurb58q&st=3amwmv9a&raw=1', available: true });
+EPISODES.push({ num: 30, title: 'Episode 30', desc: 'Episode 30 of Death Player.', url: 'https://www.dropbox.com/scl/fi/14cjnr0tmcxjef5cu1lkg/Death-Note-English-S1E30-1080P.mp4?rlkey=2jx7ur2w9idad3apfe9fgrsl8&st=q5eg8n5q&raw=1', available: true });
+EPISODES.push({ num: 31, title: 'Episode 31', desc: 'Episode 31 of Death Player.', url: 'https://www.dropbox.com/scl/fi/axd66ffi3bhh1g15moxpd/Death-Note-English-S1E31-1080P.mp4?rlkey=ezy1ue4ccisirahf0n86fctmw&st=ngmns5a7&raw=1', available: true });
+EPISODES.push({ num: 32, title: 'Episode 32', desc: 'Episode 32 of Death Player.', url: 'https://www.dropbox.com/scl/fi/52iyj7pr9rn9j0a82s51p/Death-Note-English-S1E32-1080P.mp4?rlkey=08utjd218geneemmj3wmmskbs&st=9mja53mx&raw=1', available: true });
+EPISODES.push({ num: 33, title: 'Episode 33', desc: 'Episode 33 of Death Player.', url: 'https://www.dropbox.com/scl/fi/inplu7sy0208o2hit0yjt/Death-Note-English-S1E33-1080P.mp4?rlkey=smdh08xkknml9u0xbqoric1ru&st=2g6kuxva&raw=1', available: true });
+EPISODES.push({ num: 34, title: 'Episode 34', desc: 'Episode 34 of Death Player.', url: 'https://www.dropbox.com/scl/fi/wkaeqlxiqz5f3e0eoftb2/Death-Note-English-S1E34-1080P.mp4?rlkey=4yxwkst94sgc11palumyt6mpe&st=k634033r&raw=1', available: true });
+EPISODES.push({ num: 35, title: 'Episode 35', desc: 'Episode 35 of Death Player.', url: 'https://www.dropbox.com/scl/fi/79af3li3jk04z8lv7zdry/Death-Note-English-S1E35-1080P.mp4?rlkey=7iiv402r5mx46hxg5o7ber9m4&st=cby467by&raw=1', available: true });
+EPISODES.push({ num: 36, title: 'Episode 36', desc: 'Coming soon.', url: null, available: false });
+EPISODES.push({ num: 37, title: 'Episode 37', desc: 'Coming soon.', url: null, available: false });
 let currentEp = -1;
 
 /* ── ELEMENTS ── */
@@ -496,7 +524,6 @@ const centrePop = document.getElementById('centrePop');
 const centreIcn = document.getElementById('centreIcon');
 
 let popTimer, dragging = false;
-let seekTimers = {};
 
 /* ── HELPERS ── */
 function fmt(s) {
@@ -515,17 +542,6 @@ function flashCentre(icon) {
   clearTimeout(popTimer);
   popTimer = setTimeout(() => centrePop.classList.remove('show'), 500);
 }
-function seekFlash(side) {
-  const key = side === 'left' ? 'Left' : 'Right';
-  const ripple = document.getElementById('ripple' + key);
-  const label  = document.getElementById('label'  + key);
-  ripple.classList.add('show'); label.classList.add('show');
-  clearTimeout(seekTimers[side]);
-  seekTimers[side] = setTimeout(() => {
-    ripple.classList.remove('show'); label.classList.remove('show');
-  }, 650);
-}
-
 /* ── PLAY / PAUSE ── */
 function togglePlay() {
   if (video.paused) { video.play(); flashCentre('⏸'); }
@@ -537,29 +553,111 @@ video.addEventListener('ended', () => { setPlayIcon(false); nextEp(); });
 btnPP.addEventListener('click', togglePlay);
 video.addEventListener('click', togglePlay);
 
-/* ── SEEK ±10 ── */
+/* ── SEEK ±10 (button) ── */
 function seek(delta) {
   video.currentTime = Math.max(0, Math.min(video.duration || 0, video.currentTime + delta));
 }
-document.getElementById('btnBack').addEventListener('click', () => { seek(-10); seekFlash('left');  });
-document.getElementById('btnFwd' ).addEventListener('click', () => { seek(+10); seekFlash('right'); });
+document.getElementById('btnBack').addEventListener('click', () => { seek(-10); triggerZoneSeek('left',  1); });
+document.getElementById('btnFwd' ).addEventListener('click', () => { seek(+10); triggerZoneSeek('right', 1); });
 
-/* Double-click zones */
-let tapCount = { left: 0, right: 0 };
-let tapTimer = { left: null, right: null };
-function handleZoneTap(side) {
-  tapCount[side]++;
-  clearTimeout(tapTimer[side]);
-  tapTimer[side] = setTimeout(() => {
-    if (tapCount[side] >= 2) {
-      seek(side === 'left' ? -10 : +10);
-      seekFlash(side);
-    } else {
-      togglePlay();
-    }
-    tapCount[side] = 0;
-  }, 260);
+/* ══ CUMULATIVE ZONE SEEK (YouTube-style) ══
+   State per side:
+     zoneClicks  – how many clicks have fired in the current window
+     zoneTotal   – total seconds queued (applied immediately each click)
+     zoneTimer   – dismiss timer (resets label after inactivity)
+     zoneSingle  – timer waiting to decide if first tap is single/double
+*/
+const zoneState = {
+  left:  { clicks: 0, total: 0, dismissTimer: null, singleTimer: null },
+  right: { clicks: 0, total: 0, dismissTimer: null, singleTimer: null }
+};
+
+/* Show / update the flash label for a side */
+function showZoneLabel(side, totalSec) {
+  const key    = side === 'left' ? 'Left' : 'Right';
+  const ripple = document.getElementById('ripple' + key);
+  const label  = document.getElementById('label'  + key);
+  const secEl  = document.getElementById('sec'    + key);
+  const arrEl  = document.getElementById('arrows' + key);
+
+  // Update text
+  secEl.textContent = totalSec + ' sec';
+
+  // Arrows: show more chevrons as total grows (max 4 pairs)
+  const pairs = Math.min(4, Math.ceil(totalSec / 10));
+  const ch    = side === 'left' ? '‹' : '›';
+  arrEl.textContent = ch.repeat(pairs * 2);  // e.g. ‹‹, ‹‹‹‹, ‹‹‹‹‹‹
+
+  // Show
+  ripple.classList.add('show');
+  label.classList.add('show');
 }
+
+/* Hide label for a side */
+function hideZoneLabel(side) {
+  const key    = side === 'left' ? 'Left' : 'Right';
+  const ripple = document.getElementById('ripple' + key);
+  const label  = document.getElementById('label'  + key);
+  ripple.classList.remove('show');
+  label.classList.remove('show');
+}
+
+/* Called when user clicks a zone */
+function handleZoneTap(side) {
+  const st  = zoneState[side];
+  const dir = side === 'left' ? -1 : 1;
+
+  // Cancel any pending single-tap play/pause timer
+  clearTimeout(st.singleTimer);
+
+  if (st.clicks === 0) {
+    // Very first tap — wait briefly to see if a second tap comes
+    st.singleTimer = setTimeout(() => {
+      // No second tap arrived → treat as play/pause
+      if (st.clicks === 1) {
+        st.clicks = 0;
+        st.total  = 0;
+        togglePlay();
+      }
+    }, 250);
+  }
+
+  st.clicks++;
+
+  if (st.clicks >= 2) {
+    // Seek +10 per click from the 2nd onwards
+    const delta = dir * 10;
+    video.currentTime = Math.max(0, Math.min(video.duration || 0, video.currentTime + delta));
+    st.total += 10;
+
+    // Show / refresh label
+    showZoneLabel(side, st.total);
+
+    // Reset dismiss timer — label hides 800ms after last click
+    clearTimeout(st.dismissTimer);
+    st.dismissTimer = setTimeout(() => {
+      hideZoneLabel(side);
+      st.clicks = 0;
+      st.total  = 0;
+    }, 800);
+  }
+}
+
+/* Helper to trigger zone flash from the ±10 buttons (1 seek = 10s) */
+function triggerZoneSeek(side, times) {
+  const st = zoneState[side];
+  // Simulate double-tap state so flash shows
+  st.clicks = 2;
+  st.total += 10 * times;
+  showZoneLabel(side, st.total);
+  clearTimeout(st.dismissTimer);
+  st.dismissTimer = setTimeout(() => {
+    hideZoneLabel(side);
+    st.clicks = 0;
+    st.total  = 0;
+  }, 800);
+}
+
 document.getElementById('zoneLeft' ).addEventListener('click', () => handleZoneTap('left'));
 document.getElementById('zoneRight').addEventListener('click', () => handleZoneTap('right'));
 
